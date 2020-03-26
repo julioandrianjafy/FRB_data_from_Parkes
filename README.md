@@ -1,1 +1,0 @@
-# Parkers_radio_telescope
