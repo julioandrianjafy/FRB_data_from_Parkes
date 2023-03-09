@@ -46,11 +46,23 @@ class fcube_class():
                 newframe.append(np.roll(self.data[i],-delays[i]))
             return newframe
 
+        # summ
+        def get_profile(self,frame, Dedisp = False, DM = False):
+
+            if Dedisp:
+
+                frame = self.dedisperse(DM)
+                return np.sum(frame, axis=0)
+            else:
+                return np.sum(frame, axis=0)
+
+
+
 
 
 #testcube = filterbank.get_filterbank()
 #mycube = fcube_class(testcube,setup.Bandwidth,setup.finit,1518,setup.new_tres)
-#nf = mycube.dedisperse(790)
+#nf = mycube.get_profile('a',Dedisp=True,DM=790)
 
-#plt.imshow(nf)
+#plt.plot(np.arange(len(nf)),nf)
 #plt.show()
